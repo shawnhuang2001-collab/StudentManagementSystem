@@ -1,0 +1,15 @@
+# 忽略编译后的文件
+*.class
+
+# IntelliJ / VSCode 配置文件
+*.iml
+.idea/
+.vscode/
+
+# 构建输出
+out/
+target/
+
+# 系统文件
+.DS_Store
+Thumbs.db
