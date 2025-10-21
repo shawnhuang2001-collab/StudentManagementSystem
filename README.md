@@ -64,19 +64,19 @@ This project helps practice **OOP**, **Collections**, **File I/O**, and **Consol
 
 StudentManagementSystem/
 
-├── students.txt                # 学生信息存储文件 / Data File
+​		├── students.txt                # 学生信息存储文件 / Data File
 
-├── README.md                   # 项目说明（中英版） / Main Documentation
+​		├── README.md                   # 项目说明（中英版） / Main Documentation
 
-├── README_DE.md                # 德语版说明 / German Version
+​		├── README_DE.md                # 德语版说明 / German Version
 
-└── src/
+​		└── src/
 
-├── Student.java            # 学生类 / Student Class
+​				├── Student.java            # 学生类 / Student Class
 
-├── StudentService.java     # 业务逻辑类 / Service Layer (CRUD & File I/O)
+​				├── StudentService.java     # 业务逻辑类 / Service Layer (CRUD & File I/O)
 
-└── StudentManagementApp.java  # 主程序入口 / Main Entry (main method)
+​				└── StudentManagementApp.java  # 主程序入口 / Main Entry (main method)
 
 1. 克隆项目到本地：
 

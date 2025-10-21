@@ -45,12 +45,12 @@ Bitte wählen Sie eine Option:
 
 ## 📂 3. Projektstruktur
 StudentManagementSystem/
-├── students.txt # Datei zur Speicherung der Studentendaten
-├── README.md # Dokumentation (Chinesisch/Englisch)
-└── src/
-├── Student.java # Datenklasse für Studenten
-├── StudentService.java # Logik (CRUD + Dateioperationen)
-└── StudentManagementApp.java # Haupteinstiegspunkt (main-Methode)
+		├── students.txt # Datei zur Speicherung der Studentendaten
+		├── README.md # Dokumentation (Chinesisch/Englisch)
+		└── src/
+				├── Student.java # Datenklasse für Studenten
+				├── StudentService.java # Logik (CRUD + Dateioperationen)
+				└── StudentManagementApp.java # Haupteinstiegspunkt (main-Methode)
 
 ---
 
