@@ -59,6 +59,7 @@ StudentManagementSystem/
 
    ~~~bash
    git clone https://github.com/yourname/StudentManagementSystem.git
+   cd StudentManagementSystem
    ~~~
 
 2. Projekt in IntelliJ IDEA oder einer anderen Java-IDE öffnen
