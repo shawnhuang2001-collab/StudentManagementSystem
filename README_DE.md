@@ -96,4 +96,3 @@ StudentManagementSystem/
 
 💬 *Dieses Projekt dient ausschließlich zu Lernzwecken. Forks und Vorschläge sind willkommen!*
 
-💬 Dieses Projekt dient ausschließlich zu Lernzwecken. Forks und Vorschläge sind willkommen!
