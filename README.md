@@ -82,6 +82,7 @@ StudentManagementSystem/
 
    ~~~bash
    git clone https://github.com/yourname/StudentManagementSystem.git
+   cd StudentManagementSystem
    ~~~
 
 2. 使用 IntelliJ IDEA 或 Eclipse 打开项目。Open with IntelliJ IDEA or any Java IDE.
