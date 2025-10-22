@@ -78,6 +78,8 @@ StudentManagementSystem/
 
 ​				└── StudentManagementApp.java  # 主程序入口 / Main Entry (main method)
 
+## ▶️ 运行方式 / How to Run
+
 1. Clone repository  克隆项目到本地:
 
    ~~~bash
