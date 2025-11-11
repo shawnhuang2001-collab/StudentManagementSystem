@@ -6,25 +6,42 @@ Das System unterstützt das Hinzufügen, Löschen, Bearbeiten und Anzeigen von S
 ---
 
 ## 📘 1. Projektbeschreibung
-Dieses Projekt wurde entwickelt, um die Grundlagen der objektorientierten Programmierung in Java zu üben.  
-Es zeigt den Umgang mit:
-- Klassen und Objekten  
-- Collections (`ArrayList`)  
-- Dateioperationen (Lesen und Schreiben)  
-- Konsoleneingabe und -ausgabe (`Scanner`)
+- Dieses Projekt wurde entwickelt, um die Grundlagen der objektorientierten Programmierung in Java zu üben.
+  Es bietet jetzt auch ein **einfaches Login-/Registrierungssystem** und eine **verbesserte Konsolenanzeige**.
+
+  **Enthaltene Themen:**
+
+  - Klassen und Objekte
+  - Collections (`ArrayList`)
+  - Dateioperationen (Lesen & Schreiben)
+  - Konsoleneingabe und -ausgabe (Scanner)
+  - Benutzerverwaltung (`Login / Registrierung`)
 
 ---
 
 ## 🧩 2. Systemfunktionen
 
 ### Hauptmenü
--------------Willkommen im Studentenverwaltungssystem-------------
-1: Student hinzufügen
-2: Student löschen
-3: Student bearbeiten
-4: Studenten anzeigen
-5: Beenden
+
+```bash
+=========== Willkommen im Studentenverwaltungssystem ===========
+1. Benutzer registrieren
+2. Anmeldung
+3. Student hinzufügen
+4. Student löschen
+5. Student bearbeiten
+6. Studenten anzeigen
+7. Beenden
+===============================================================
 Bitte wählen Sie eine Option:
+
+```
+
+### Benutzerverwaltung
+
+- **Registrierung:** Eingabe eines Benutzernamens und Passworts, Speicherung in `users.txt`
+- **Anmeldung:** Nur registrierte Benutzer können auf das System zugreifen
+- **Mehrbenutzerfähig:** Jeder Benutzer kann seine eigenen Studentendaten verwalten
 
 ### Studentendaten
 | Attribut | Beschreibung                     |
@@ -34,23 +51,49 @@ Bitte wählen Sie eine Option:
 | age      | Alter                            |
 | address  | Wohnadresse                      |
 
-### Funktionsbeschreibung
-- **Hinzufügen** – Eingabe von Studentendaten, ID muss eindeutig sein  
-- **Löschen** – Entfernt einen Studenten anhand der ID  
-- **Bearbeiten** – Ändert Name, Alter oder Adresse eines bestehenden Studenten  
-- **Anzeigen** – Zeigt alle gespeicherten Studenteninformationen an  
-- **Beenden** – Speichert alle Änderungen in der Datei `students.txt`
+- ### Funktionsbeschreibung
+
+  - **Hinzufügen:** Neuen Studenten anlegen (ID muss eindeutig sein)
+  - **Löschen:** Studenten anhand der ID entfernen
+  - **Bearbeiten:** Name, Alter oder Adresse ändern
+  - **Anzeigen:** Alle gespeicherten Studenteninformationen anzeigen
+  - **Beenden:** Änderungen automatisch in `students.txt` speichern
+
+## 🎨 3. Konsolenoberfläche
+
+✅ Verbesserte Menüstruktur mit klaren Linien und Abständen
+✅ Freundlichere Eingabeaufforderungen
+✅ Farbige oder symbolische Ausgaben (je nach Terminalunterstützung)
+
+Beispiel:
+
+```bash
+✨ Student erfolgreich hinzugefügt!
+📁 Daten wurden in students.txt gespeichert.
+```
+
+
 
 ---
 
 ## 📂 3. Projektstruktur
+```bash
 StudentManagementSystem/
-		├── students.txt # Datei zur Speicherung der Studentendaten
-		├── README.md # Dokumentation (Chinesisch/Englisch)
-		└── src/
-				├── Student.java # Datenklasse für Studenten
-				├── StudentService.java # Logik (CRUD + Dateioperationen)
-				└── StudentManagementApp.java # Haupteinstiegspunkt (main-Methode)
+│
+├── students.txt                # Datei zur Speicherung der Studentendaten
+├── users.txt                   # Datei zur Speicherung der Benutzerdaten (Login/Registrierung)
+├── README.md                   # Hauptdokumentation (Chinesisch/Englisch)
+├── README_DE.md                # Deutsche Dokumentation
+└── src/
+    ├── Student.java            # Datenklasse für Studenten
+    ├── StudentService.java     # Logik (CRUD + Dateioperationen)
+    ├── UserService.java        # Benutzerverwaltung (Login / Registrierung)
+    ├── StudentManagementApp.java  # Haupteinstiegspunkt (main-Methode)
+    └── UIHelper.java           # Konsolen-UI-Verbesserungen (optional)
+
+```
+
+
 
 ---
 
@@ -62,13 +105,13 @@ StudentManagementSystem/
    cd StudentManagementSystem
    ~~~
 
-2. Projekt in IntelliJ IDEA oder einer anderen Java-IDE öffnen
+2. In IntelliJ IDEA oder einer anderen Java-IDE öffnen
 
-3. Sicherstellen, dass sich die Datei students.txt im Hauptverzeichnis befindet
+3. Sicherstellen, dass sich `students.txt` und `users.txt` im Hauptverzeichnis befinden
 
-4. StudentManagementApp.java ausführen
+4. `StudentManagementApp.java` ausführen
 
-5. Im Terminal den Anweisungen folgen
+5. Den Anweisungen in der Konsole folgen
 
 ##🧠 5. Technische Punkte
 
@@ -77,19 +120,20 @@ StudentManagementSystem/
 - Dateioperationen (BufferedReader / BufferedWriter)
 - Konsoleninteraktion (Scanner)
 - Objektorientierte Programmierung
+- Benutzerverwaltung (Login & Registrierung)
 
 ##🌱 6. Zukünftige Verbesserungen
 
-- Optimierung der Dateioperationen
-- Eingabevalidierung (z. B. Altersbereich, Adressformat)
-- Benutzerverwaltung (Login, Registrierung, Passwort-Reset)
-- Erweiterung zu einer grafischen Oberfläche (JavaFX / Swing)
+- ✅ Konsolen-UI überarbeitet
+- ✅ Login-/Registrierungssystem implementiert
+- ⏳ Eingabevalidierung verbessern
+- 🚀 Grafische Benutzeroberfläche (JavaFX / Swing) planen
 
 ##👨‍💻 Autor
 
 **Autor**: Shawn Huang
 
-**Erstellt am**: Oktober 2025
+**Erstellt am**:November2025
 
 **Technologien**: Java SE, Collections, I/O, CLI
 
