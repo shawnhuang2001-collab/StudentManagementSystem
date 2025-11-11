@@ -22,7 +22,6 @@ public class StudentService {
                 System.out.println("此id已经存在,请您重新录入");
             } else {
                 s.setId(id);
-                System.out.println("我被执行了");
                 break;
             }
         }

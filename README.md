@@ -134,3 +134,20 @@ This project is for learning purposes only. Forks and improvements are welcome!
 
 
 
+
+```
+StudentManagementSystem
+├─ README.md
+├─ README_DE.md
+├─ src
+│  └─ com
+│     └─ itheima
+│        └─ demo1
+│           └─ StudentManagementSystem
+│              ├─ App.java
+│              ├─ Student.java
+│              ├─ StudentManagementApp.java
+│              └─ StudentService.java
+└─ students.txt
+
+```
