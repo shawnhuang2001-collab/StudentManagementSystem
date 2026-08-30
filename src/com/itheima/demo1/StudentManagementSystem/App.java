@@ -36,7 +36,7 @@ public class App {
                 case "2" -> register();
                 case "3" -> forgetPassword();
                 case "4" -> {
-                    System.out.println("👋 谢谢使用，再见！");
+                    System.out.println("👋 谢谢使用，再见 ！");
                     System.exit(0);
                 }
                 default -> {
@@ -50,7 +50,7 @@ public class App {
     public static void login() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("请输入用户名：");
+        System.out.println("请输入您的用户名：");
         String username = sc.next();
         System.out.println("请输入密码：");
         String password = sc.next();
