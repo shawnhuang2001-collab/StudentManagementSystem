@@ -7,19 +7,19 @@ import java.util.Scanner;
 public class StudentService {
 
     //添加学生
-    public static void addStudent(ArrayList<Student> students) {
+    public static void addStudent(ArrayList<Student> students, Language language, String filename) {
         //利用空参构造方法创建学生对象
         Student s = new Student();
         Scanner sc = new Scanner(System.in);
 
 
         while (true) {
-            System.out.println("请输入学生的id:");
+            System.out.println(LanguageManager.getText("student_id", language));
             String id = sc.next();
             //判断id是否存在
             boolean exist = isExist(students, id);
             if (exist) {
-                System.out.println("此id已经存在,请您重新录入");
+                System.out.println(LanguageManager.getText("id_exists", language));
             } else {
                 s.setId(id);
                 break;
@@ -27,30 +27,33 @@ public class StudentService {
         }
 
 
-        System.out.println("请输入学生姓名:");
+        System.out.println(LanguageManager.getText("student_name", language));
         String name = sc.next();
         s.setName(name);
 
-        System.out.println("请输入学生年龄:");
+        System.out.println(LanguageManager.getText("student_age", language));
         int age = sc.nextInt();
         s.setAge(age);
 
 
-        System.out.println("请输入学生家庭地址:");
+        System.out.println(LanguageManager.getText("student_address", language));
         String address = sc.next();
         s.setAddress(address);
 
-        //将学生对象添加到集合中
+        // 将学生对象添加到集合中
         students.add(s);
-        System.out.println("学生信息添加成功！");
+
+        System.out.println(LanguageManager.getText("add_success", language));
+        // 立即保存学生信息
+        saveStudentsToFile(students, filename, language);
 
     }
 
     //删除学生
-    public static void deleteStudent(ArrayList<Student> students) {
+    public static void deleteStudent(ArrayList<Student> students, Language language, String filename) {
         //键盘录入学生id
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入要删除的学生id:");
+        System.out.println(LanguageManager.getText("delete_student_id",language));
         String id = sc.next();
         //判断id是否存在
         boolean exist = isExist(students, id);
@@ -58,17 +61,19 @@ public class StudentService {
             //删除
             int index = getIndex(students, id);
             students.remove(index);
-            System.out.println("学生" + id + "信息删除成功！");
+            System.out.println(LanguageManager.getText("student", language) + id + LanguageManager.getText("delete_success", language));
+            // 立即保存
+            saveStudentsToFile(students, filename, language);
         } else {
-            System.out.println("该学生id不存在，删除失败！");
+            System.out.println(LanguageManager.getText("delete_fail", language));
         }
     }
 
     //修改学生
-    public static void updateStudent(ArrayList<Student> students) {
+    public static void updateStudent(ArrayList<Student> students, Language language, String filename) {
         //键盘录入要修改的学生id
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入要修改的学生id:");
+        System.out.println(LanguageManager.getText("new_student_id", language));
         String id = sc.next();
         //判断id是否存在
         int index = getIndex(students, id);
@@ -76,33 +81,34 @@ public class StudentService {
             //根据索引获取到要修改的学生对象
             Student stu = students.get(index);
             //键盘录入新的学生信息并修改
-            System.out.println("请输入新的学生姓名:");
+            System.out.println(LanguageManager.getText("new_student_name", language));
             String newName = sc.next();
             stu.setName(newName);
 
-            System.out.println("请输入新的学生年龄:");
+            System.out.println(LanguageManager.getText("new_student_age", language));
             int newAge = sc.nextInt();
             stu.setAge(newAge);
 
-            System.out.println("请输入新的学生家庭住址:");
+            System.out.println(LanguageManager.getText("new_student_address", language));
             String newAddress = sc.next();
             stu.setAddress(newAddress);
 
-            System.out.println("学生" + id + "信息修改成功！");
-
+            System.out.println(LanguageManager.getText("student",language) + id + LanguageManager.getText("update_success", language));
+            // 立即保存
+            saveStudentsToFile(students, filename, language);
         } else {
-            System.out.println("该学生id不存在，修改失败！");
+            System.out.println(LanguageManager.getText("update_fail", language) + id + LanguageManager.getText("not_exist", language));
         }
     }
 
     //查询学生
-    public static void queryStudent(ArrayList<Student> students) {
+    public static void queryStudent(ArrayList<Student> students, Language language) {
         if (students.size() == 0) {
-            System.out.println("暂无学生信息，请添加后再查询！");
+            System.out.println(LanguageManager.getText("no_student", language));
             return;
         }
         //打印表头
-        System.out.println("学号\t\t姓名\t年龄\t地址");
+        System.out.println(LanguageManager.getText("table_header", language));
         for (int i = 0; i < students.size(); i++) {
             Student stu = students.get(i);
             System.out.println(stu.getId() + "\t" + stu.getName() + "\t" + stu.getAge() + "\t" + stu.getAddress());
@@ -145,21 +151,21 @@ public class StudentService {
     }
 
     //文件保存方法
-    public static void saveStudentsToFile(ArrayList<Student> students, String filename) {
+    public static void saveStudentsToFile(ArrayList<Student> students, String filename, Language language) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
             for (Student s : students) {
                 String line = s.getId() + "," + s.getName() + "," + s.getAge() + "," + s.getAddress();
                 bw.write(line);
                 bw.newLine();
             }
-            System.out.println("学生信息已保存到文件：" + filename);
+            System.out.println(LanguageManager.getText("file_save_success",language) + filename);
         } catch (IOException e) {
-            System.out.println("保存文件失败：" + e.getMessage());
+            System.out.println(LanguageManager.getText("file_save_fail",language) + e.getMessage());
         }
     }
 
     //文件读取方法
-    public static ArrayList<Student> loadStudentsFromFile(String filename) {
+    public static ArrayList<Student> loadStudentsFromFile(String filename, Language language) {
         ArrayList<Student> students = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
@@ -173,9 +179,9 @@ public class StudentService {
                     students.add(new Student(id, name, age, address));
                 }
             }
-            System.out.println("学生信息已从文件加载：" + filename);
+            System.out.println(LanguageManager.getText("file_load_succsess",language) + filename);
         } catch (IOException e) {
-            System.out.println("读取文件失败：" + e.getMessage());
+            System.out.println(LanguageManager.getText("file_load_fail", language) + e.getMessage());
         }
         return students;
     }

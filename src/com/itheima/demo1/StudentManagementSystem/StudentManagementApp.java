@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentManagementApp {
-    public static void start() {
+    public static void start(Language language) {
         String filename = "students.txt";
         StudentService service = new StudentService();
 
         // 从文件加载数据
-        ArrayList<Student> students = service.loadStudentsFromFile(filename);
+        ArrayList<Student> students = service.loadStudentsFromFile(filename,language);
 
         Scanner sc = new Scanner(System.in);
 
@@ -17,32 +17,32 @@ public class StudentManagementApp {
         while (true) {
 
             System.out.println("\n====================================================");
-            System.out.println("                🎓 欢 迎 使 用 学 生 管 理 系 统");
+            System.out.println(LanguageManager.getText("welcome",language));
             System.out.println("====================================================\n");
 
-            System.out.println("  1. 添加学生");
-            System.out.println("  2. 删除学生");
-            System.out.println("  3. 修改学生");
-            System.out.println("  4. 查询学生");
-            System.out.println("  5. 退出系统\n");
+            System.out.println(LanguageManager.getText("add_student",language));
+            System.out.println(LanguageManager.getText("delete_student",language));
+            System.out.println(LanguageManager.getText("update_student",language));
+            System.out.println(LanguageManager.getText("query_student",language));
+            System.out.println(LanguageManager.getText("exit_system",language));
 
             System.out.println("====================================================");
-            System.out.print("👉 请输入您的选择：");
+            System.out.print(LanguageManager.getText("enter_choice",language));
 
             String choice = sc.next();
             System.out.println();
 
             switch (choice) {
-                case "1" -> service.addStudent(students);
-                case "2" -> service.deleteStudent(students);
-                case "3" -> service.updateStudent(students);
-                case "4" -> service.queryStudent(students);
+                case "1" -> service.addStudent(students, language,filename);
+                case "2" -> service.deleteStudent(students, language,filename);
+                case "3" -> service.updateStudent(students, language,filename);
+                case "4" -> service.queryStudent(students, language);
                 case "5" -> {
-                    service.saveStudentsToFile(students, filename);
-                    System.out.println("👋 感谢您的使用，再见！");
+                    service.saveStudentsToFile(students, filename, language);
+                    System.out.println(LanguageManager.getText("bye", language));
                     break loop;
                 }
-                default -> System.out.println("❌ 输入有误，请重新输入！");
+                default -> System.out.println(LanguageManager.getText("invalid_choice", language));
             }
         }
     }
