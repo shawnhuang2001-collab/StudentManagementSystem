@@ -1,4 +1,4 @@
-package com.itheima.demo1.StudentManagementSystem;
+package StudentManagementSystem;
 
 public class User {
     private String username;   // 用户名

@@ -1,4 +1,4 @@
-package com.itheima.demo1.StudentManagementSystem;
+package StudentManagementSystem;
 
 public class Student {
     private String id;
